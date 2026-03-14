@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Smart Route Optimizer</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<h1>Smart Route Optimization System</h1>
+
+<form action="/route" method="post">
+
+<label>Start Node:</label>
+<input type="text" name="start" placeholder="Enter A-Z" required>
+
+<br><br>
+
+<label>End Node:</label>
+<input type="text" name="end" placeholder="Enter A-Z" required>
+
+<br><br>
+
+<button type="submit">Find Shortest Route</button>
+
+</form>
+
+<br>
+
+{% if distance %}
+<h2>Shortest Distance: {{ distance }}</h2>
+{% endif %}
+
+{% if graph_url %}
+<img src="data:image/png;base64,{{ graph_url }}" width="500">
+{% endif %}
+
+</body>
+</html>
